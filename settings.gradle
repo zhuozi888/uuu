@@ -1,0 +1,6 @@
+rootProject.name = 'untitled13'
+include 'core'
+include 'model'
+include 'admin'
+include 'web'
+
