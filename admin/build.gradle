@@ -1,0 +1,28 @@
+import jdk.internal.dynalink.linker.LinkerServices
+
+apply plugin: "com.bmuschko.tomcat"
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-tomcat-plugin:2.5"
+    }
+}
+
+
+
+
+
+dependencies {
+
+    def tomcatVersion = '8.0.42'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+
+    implementation project(':core')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+
+}

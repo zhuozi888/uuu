@@ -1,0 +1,35 @@
+apply plugin :'maven-publish'
+
+publishing {
+    publications {
+        // publishProject 为自定义名称,可写多个发布任务
+        publishProject(MavenPublication){
+            from components.java  // 发布 jar 包
+            //from components.war  // 发布 war 包
+        }
+    }
+    // 配置发布到哪里
+    repositories {
+        maven {
+            //指定要上传的 maven 私服仓库
+            url = ""
+            //认证用户和密码
+//            credentials {
+////                username 'root'
+////                password 'admin'
+//            }
+        }
+    }
+}
+
+
+
+
+dependencies {
+
+    implementation project(':model')
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
